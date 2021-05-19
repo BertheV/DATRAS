@@ -829,7 +829,7 @@ addSpatialData <- function(d,shape,select=NULL,...){
   require(maptools)
   if(is.character(shape)){
     if(file.exists(shape)){
-      shape <- readShapeSpatial(shape)
+      shape <- rgdal::readOGR(shape) # Function deprecated
     }
   }
   i <- complete.cases(d[[2]][c("lon","lat")])
